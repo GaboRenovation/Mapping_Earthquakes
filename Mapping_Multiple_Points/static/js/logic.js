@@ -39,14 +39,100 @@ let map = L.map('mapid').setView([30.7, -100.5], 5);
 // the following line of code before our tileLayer()code,
 //    let marker = L.marker([34.0522, -118.2437]).addTo(map);
 
-// to have a circle marker we changed as follows:
-    let marker = L.circleMarker([34.0522, -118.2437], {
-        radius: 50
-     }).addTo(map);
+// // to have a circle marker (works only for 1 city) we changed as follows:
+//     let marker = L.circleMarker([34.0522, -118.2437], {
+//         radius: 50
+//      }).addTo(map);
 
     //  https://leafletjs.com/reference-1.6.0.html#circlemarker
     //  https://leafletjs.com/reference-1.6.0.html#circle
     //  https://leafletjs.com/reference-1.6.0.html#marker
+
+// The following code works for multiple points or cities
+// 13-4-2
+// an array of cities is required
+// An array containing each city's location, state, and population.
+// let cities = [{
+//     location: [40.7128, -74.0059],
+//     city: "New York City",
+//     state: "NY",
+//     population: 8398748
+//   },
+//   {
+//     location: [41.8781, -87.6298],
+//     city: "Chicago",
+//     state: "IL",
+//     population: 2705994
+//   },
+//   {
+//     location: [29.7604, -95.3698],
+//     city: "Houston",
+//     state: "TX",
+//     population: 2325502
+//   },
+//   {
+//     location: [34.0522, -118.2437],
+//     city: "Los Angeles",
+//     state: "CA",
+//     population: 3990456
+//   },
+//   {
+//     location: [33.4484, -112.0740],
+//     city: "Phoenix",
+//     state: "AZ",
+//     population: 1660272
+//   },
+//   {
+//     location: [25.671240, -100.309484],
+//     city: "Monterrey",
+//     state: "NL",
+//     population: 1109000
+//   },
+//   {
+//     location: [19.43257, -99.13346],
+//     city: "Mexico",
+//     state: "MX",
+//     population: 8855000
+//   }
+//   ];
+// When handling large datasets, it's a best practice to have the data in an 
+// external file and refer to that file and dataset in the logic.js file.
+
+// Get data from cities.js
+let cityData = cities;
+
+// 13-4-2
+// Loop through the cities array and create one marker for each city.
+cityData.forEach(function(city) {
+    console.log(city)
+    L.circleMarker(city.location, {radius: city.population/200000})
+    .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+    .addTo(map);
+});
+
+//     L.circleMarker(city.location, {radius: 30}).addTo(map);
+
+
+//  in the body of the index.html file and before the path to the logic.js script, add a <script> file with the path to the JavaScript cities.js file, like this:
+// <script type="text/javascript" src="static/js/cities.js"></script>
+
+// Loop through the cities array and create one marker for each 
+// city. when the data is in this conde
+// // if data is outside we need to reference it  13-4-2
+// cities.forEach(function(city) {
+//     console.log(city)
+//     L.marker(city.location).addTo(map);
+//    });
+
+
+// CIRCLE MARKER for the array when the data is in this code
+// if data is outside we need to reference it  13-4-2
+//    cities.forEach(function(city) {
+//     console.log(city)
+//     L.circleMarker(city.location, {radius: 30}).addTo(map);
+//    });
+
+
 
 
 // We create the tile layer that will be the background of our map.
