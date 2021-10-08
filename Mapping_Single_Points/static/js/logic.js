@@ -41,8 +41,13 @@ let map = L.map('mapid').setView([30.7, -100.5], 5);
 
 // to have a circle marker we changed as follows:
     let marker = L.circleMarker([34.0522, -118.2437], {
-        radius: 100
+        radius: 50
      }).addTo(map);
+
+    //  https://leafletjs.com/reference-1.6.0.html#circlemarker
+    //  https://leafletjs.com/reference-1.6.0.html#circle
+    //  https://leafletjs.com/reference-1.6.0.html#marker
+
 
 // We create the tile layer that will be the background of our map.
 // let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {    // Code from Mapbox webpage
