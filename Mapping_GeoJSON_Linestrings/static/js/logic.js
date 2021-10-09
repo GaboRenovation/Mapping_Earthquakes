@@ -226,8 +226,8 @@ Satelite: satelite
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
-    center: [30, 30],
-    zoom: 1,
+    center: [30, -90],
+    zoom: 3,
     layers: [streets]
   })
 // Pass our map layers into our layers control and add the layers control to the map.
