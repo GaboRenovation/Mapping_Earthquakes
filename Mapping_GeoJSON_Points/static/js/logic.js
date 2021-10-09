@@ -5,7 +5,7 @@
 
 
 // Add console.log to check to see if our code is working.
-console.log("working");
+// console.log("working");
 
 
 // Add a Map Object (center of London)
@@ -16,6 +16,8 @@ console.log("working");
 
 // Create the map object with center at the San Francisco airport.
 let map = L.map('mapid').setView([30, 30], 2);
+
+
 
 // We're assigning the variable map to the object L.map(), and we'll 
 // instantiate the object with the given string 'mapid'.
@@ -101,16 +103,16 @@ let map = L.map('mapid').setView([30, 30], 2);
 // external file and refer to that file and dataset in the logic.js file.
 
 // Get data from cities.js
-let cityData = cities;
+//let cityData = cities;
 
 // 13-4-2
 // Loop through the cities array and create one marker for each city.
-cityData.forEach(function(city) {
-    console.log(city)
-    L.circleMarker(city.location, {radius: city.population/200000})
-    .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
-    .addTo(map);
-});
+// cityData.forEach(function(city) {
+//     console.log(city)
+//     L.circleMarker(city.location, {radius: city.population/200000})
+//     .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+//     .addTo(map);
+// });
 
 
 //     L.circleMarker(city.location, {radius: 30}).addTo(map);
@@ -138,19 +140,19 @@ cityData.forEach(function(city) {
 
 // 13-4-3
 // Coordinates for each point to be used in the line.
-let line = [
-    [33.9416, -118.4085],
-    [37.6213, -122.3790],
-    [40.7899, -111.9791],
-    [47.4502, -122.3088]
-  ];
-// Create a polyline using the line coordinates and make the line red.
-L.polyline(line, {
-    color: "yellow"
-  }).addTo(map);
+// let line = [
+//     [33.9416, -118.4085],
+//     [37.6213, -122.3790],
+//     [40.7899, -111.9791],
+//     [47.4502, -122.3088]
+//   ];
+// // Create a polyline using the line coordinates and make the line red.
+// L.polyline(line, {
+//     color: "yellow"
+//   }).addTo(map);
 
 
-
+///////////////////////////////////////////////////////////////////////////
 // 13.5.2  GeoJSON
 // Add GeoJSON data.
 let sanFranAirport =
@@ -171,16 +173,16 @@ let sanFranAirport =
             "type":"Point",
             "coordinates":[-122.375,37.61899948120117]}}
 ]};
-// Grabbing our GeoJSON data.
-// Grabbing our GeoJSON data.
+// // Grabbing our GeoJSON data.
+// // Grabbing our GeoJSON data.
 L.geoJson(sanFranAirport, {
-    // We turn each feature into a marker on the map.
+//     // We turn each feature into a marker on the map.
     pointToLayer: function(feature, latlng) {
       console.log(feature);
       return L.marker(latlng);
     }
   }).addTo(map);
-
+///////////////////////////////////////////////////////////////////////////
   
 
 
@@ -200,13 +202,18 @@ L.geoJson(sanFranAirport, {
 // To use the d3.json() method, we need to have the 
 // <script src="https://d3js.org/d3.v5.min.js"></script> file in the index.html page.
 // Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/<GitHub_name>/Mapping_Earthquakes/main/majorAirports.json";
+// let airportData = "https://raw.githubusercontent.com/GaboRenovation/Mapping_Earthquakes/main/majorAirports.json";
+
+let airportData = "majorAirports.json";
+
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
     console.log(data);
+
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data).addTo(map);
 });
+
 
 
     // id: 'mapbox/streets-v11',

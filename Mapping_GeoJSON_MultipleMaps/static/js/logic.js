@@ -202,10 +202,14 @@ L.geoJson(sanFranAirport, {
 // To use the d3.json() method, we need to have the 
 // <script src="https://d3js.org/d3.v5.min.js"></script> file in the index.html page.
 // Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/GaboRenovation/Mapping_Earthquakes/main/majorAirports.json";
+// let airportData = "https://raw.githubusercontent.com/GaboRenovation/Mapping_Earthquakes/main/majorAirports.json";
+
+let airportData = "majorAirports.json";
+
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
     console.log(data);
+
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data).addTo(map);
 });
