@@ -12,7 +12,7 @@ console.log("working");
 // var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([37.6213, -122.3790], 5);
+let map = L.map('mapid').setView([30.7, -100.5], 5);
 
 
 // We're assigning the variable map to the object L.map(), and we'll 
@@ -110,7 +110,6 @@ cityData.forEach(function(city) {
     .addTo(map);
 });
 
-
 //     L.circleMarker(city.location, {radius: 30}).addTo(map);
 
 
@@ -132,20 +131,6 @@ cityData.forEach(function(city) {
 //     console.log(city)
 //     L.circleMarker(city.location, {radius: 30}).addTo(map);
 //    });
-
-
-// 13-4-3
-// Coordinates for each point to be used in the line.
-let line = [
-    [33.9416, -118.4085],
-    [37.6213, -122.3790],
-    [40.7899, -111.9791],
-    [47.4502, -122.3088]
-  ];
-// Create a polyline using the line coordinates and make the line red.
-L.polyline(line, {
-    color: "yellow"
-  }).addTo(map);
 
 
 
