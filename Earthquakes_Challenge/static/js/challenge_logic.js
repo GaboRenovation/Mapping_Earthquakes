@@ -239,14 +239,14 @@ let map = L.map('mapid', {
         let tectonic = new L.LayerGroup();
 
     // Add a 3rd layer group for the major earthquake data.
-        let majorEarthquakes = new L.LayerGroup();
+        let majorEQ = new L.LayerGroup();
 
     // 2. Add a reference to the tectonic plates group to the overlays object.
         let overlays = {
         "Earthquakes": allEarthquakes,
         "Tectonic Plates": tectonic,
     // 2. Add a reference to the major earthquake group to the overlays object.
-        "Major Earthqakes":majorEarthquakes
+        "Major Earthqakes":majorEQ
     };
 
 // Pass our map layers into our layers control and add the layers control to the map.
@@ -258,7 +258,7 @@ L.control.layers(baseMaps, overlays).addTo(map);
 // To use the d3.json() method, we need to have the 
 // <script src="https://d3js.org/d3.v5.min.js"></script> file in the index.html page.
 // Accessing the airport GeoJSON URL
-// let airportData = "https://raw.githubusercontent.com/GaboRenovation/Mapping_Earthquakes/main/majorAirports.json";
+// let airportData = "https://raw.githubusercontent.com/    <GitHub_name>   /Mapping_Earthquakes/main/majorAirports.json";
 
 // let airportDat = "majorAirports.json";
 // let torontoData = "torontoRoutes.json";
@@ -421,10 +421,10 @@ L.geoJson(data, {
     }
     
 // 8. Add the major earthquakes layer to the map.
-}).addTo(majorEarthquakes);
+}).addTo(majorEQ);
     
 // 9. Close the braces and parentheses for the major earthquake data.
-    majorEarthquakes.addTo(map);
+    majorEQ.addTo(map);
 });
     
     
